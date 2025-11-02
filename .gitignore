@@ -1,6 +1,5 @@
 .venv/
 resources/cards-image-datasetclassification/
 data/archive/
-*.h5
-*.zip
-*.pt
+image-segmentation-dataset/
+resources/dataset/
