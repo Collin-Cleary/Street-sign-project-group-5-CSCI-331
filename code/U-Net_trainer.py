@@ -15,9 +15,7 @@ from torch.utils.data import Dataset, DataLoader
 import torchvision.transforms as transforms
 
 
-# =========================
 # CONFIG
-# =========================
 
 ROOT = "../data/archive(4)/sign_dataset"
 TRAIN_DIR = os.path.join(ROOT, "train")
@@ -37,9 +35,7 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 print("Using device:", device)
 
 
-# ============================================================
 #  PART 1 — VIA PARSER 
-# ============================================================
 
 def load_via_annotations(via_json_path):
     """
@@ -83,9 +79,7 @@ def load_via_annotations(via_json_path):
 
 
 
-# ============================================================
 #  MASK RENDERING
-# ============================================================
 
 def rasterize_regions(regions, w, h):
     """
@@ -124,9 +118,7 @@ def rasterize_regions(regions, w, h):
 
 
 
-# ============================================================
 #  PRECOMPUTE MASK PNGs
-# ============================================================
 
 def precompute_masks(folder):
     """
@@ -182,9 +174,7 @@ def precompute_masks(folder):
 
 
 
-# ============================================================
 #  DATASET — loads PNG masks
-# ============================================================
 
 class RussianSignDatasetPrecomputed(Dataset):
     def __init__(self, folder, transform, target_transform):
@@ -226,9 +216,7 @@ class RussianSignDatasetPrecomputed(Dataset):
 
 
 
-# ============================================================
 #  UNET ARCHITECTURE
-# ============================================================
 
 class DoubleConv(nn.Module):
     def __init__(self, in_ch, out_ch):
@@ -297,9 +285,7 @@ class UNet(nn.Module):
 
 
 
-# ============================================================
 #  IOU METRIC
-# ============================================================
 
 def iou(pred, true, eps=1e-7):
     pred = pred > 0.5
@@ -310,9 +296,7 @@ def iou(pred, true, eps=1e-7):
 
 
 
-# ============================================================
 #  MAIN TRAIN LOOP
-# ============================================================
 
 def main():
 
@@ -337,12 +321,12 @@ def main():
     train_loader = DataLoader(train_ds, batch_size=BATCH_SIZE, shuffle=True)
     val_loader   = DataLoader(val_ds, batch_size=BATCH_SIZE, shuffle=False)
 
-    # ---- MODEL ----
+    #  MODEL 
     model = UNet().to(device)
     opt = optim.Adam(model.parameters(), lr=LR)
     criterion = nn.BCEWithLogitsLoss()
 
-    # ---- TRAINING LOOP ----
+    #  TRAINING LOOP 
     for epoch in range(1, NUM_EPOCHS + 1):
         model.train()
         total_loss = 0
@@ -361,7 +345,7 @@ def main():
 
         train_loss = total_loss / len(train_loader.dataset)
 
-        # ---- VALIDATION ----
+        #  VALIDATION 
         model.eval()
         val_loss = 0
         ious = []
@@ -386,9 +370,7 @@ def main():
 
         print(f"Epoch {epoch}/{NUM_EPOCHS}  Train={train_loss:.4f}  Val={val_loss:.4f}  IoU={mean_iou:.4f}")
 
-    # ======================================================
     #  FINAL VISUALIZATION
-    # ======================================================
 
     model.eval()
     HARDCODED_FILENAME = "231.jpg"
