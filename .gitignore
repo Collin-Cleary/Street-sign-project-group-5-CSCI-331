@@ -5,3 +5,5 @@ image-segmentation-dataset/
 resources/dataset/
 data/
 archive(4).zip
+code/best_model_by_iou.pth
+*.pth
