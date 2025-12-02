@@ -20,7 +20,7 @@ import torchvision.transforms as transforms
 from sklearn.model_selection import KFold
 
 #  CONFIG 
-ROOT = "../data/archive(4)/sign_dataset"
+ROOT = "../data/archive/sign_dataset"
 TRAIN_DIR = os.path.join(ROOT, "train")
 VAL_DIR = os.path.join(ROOT, "val")
 
