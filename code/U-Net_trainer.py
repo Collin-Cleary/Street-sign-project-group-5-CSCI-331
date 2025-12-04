@@ -24,7 +24,7 @@ ROOT = "../data/archive/sign_dataset"
 TRAIN_DIR = os.path.join(ROOT, "train")
 VAL_DIR = os.path.join(ROOT, "val")
 
-IMAGE_SIZE = (256, 256)  # change to (384,384) or (512,512) if desired
+IMAGE_SIZE = (256, 256)  
 BATCH_SIZE = 8
 NUM_EPOCHS = 20
 LR = 1e-3
@@ -40,7 +40,7 @@ torch.manual_seed(SEED)
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 print("Using device:", device)
 
-#  PART 1 — VIA PARSER (your verified working version) 
+#  PART 1 — VIA PARSER 
 def load_via_annotations(via_json_path):
     """
     Read VIA JSON and return:
