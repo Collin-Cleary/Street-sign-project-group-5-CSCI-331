@@ -452,8 +452,8 @@ def run_training_and_evaluation():
     plt.show()
 
     #  5-Fold evaluation on validation dataset only 
-    print("\nRunning 5-fold evaluation on validation dataset (no retraining)...")
-    # Build arrays of predictions and truths for each image (to avoid re-running transforms inside fold loop)
+    print("\nRunning 5-fold evaluation on validation dataset")
+    # Build arrays of predictions and truths for each image 
     all_probs = []
     all_trues = []
     filenames = []
