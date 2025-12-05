@@ -1,4 +1,4 @@
-https://www.geeksforgeeks.org/machine-learning/mask-r-cnn-ml/ (high level overview)
+https://blog.roboflow.com/mask-rcnn/ (high level overview)
 https://arxiv.org/pdf/1703.06870 (mask rcnn paper)
 https://github.com/ahmedfgad/Mask-RCNN-TF2 (mrcnn implementation)
 https://www.youtube.com/watch?v=Fu_km7FXyaU (for package requirements)
