@@ -1,6 +1,14 @@
-# Street-sign-project-group-5-CSCI-331
+# CSCI-331-04-Group-5
+### Traffic Sign Detection
 
-Group Members: Ben Simonds, Collin Cleary, Logan Costa
+### Abstract:
+
+
+
+### Members: 
+Ben Simonds - research, planning, and documentation\
+Collin Cleary - dataset preprocessing and U-Net implementation\
+Logan Costa - dataset preprocessing and Mask R-CNN implmementation
 
 
 to run the U-Net_trainer, ensure you have the kaggle dataset from this link: https://www.kaggle.com/datasets/viacheslavshalamov/russian-road-signs-segmentation-dataset in your data folder. The file architecture should look like data/archive/sign_dataset/-----train/
